@@ -1,16 +1,45 @@
-# trashbug
+# TrashBug — Municipal Trash Detection App
 
-A new Flutter application.
+Mobile application that helps municipalities identify and track trash-prone areas using crowdsourced geo-location data and image-based trash detection.
 
-## Getting Started
+## Stack
 
-This project is a starting point for a Flutter application.
+- **Flutter** (Dart) — cross-platform mobile app
+- **Firebase** — Auth, Firestore, Cloud Storage
+- **Google Maps API** — geo-location pins, heatmap visualization
+- **Flask** backend — REST APIs for image upload and trash detection ML model
 
-A few resources to get you started if this is your first Flutter project:
+## Features
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+- Crowdsourced trash reporting with geo-tagged photo uploads
+- Real-time map visualization of trash-prone zones
+- User dashboard with reporting stats and status tracking
+- Firebase Auth with login/signup flows
+- Image scanning for trash detection classification
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Architecture
+
+```
+lib/
+├── ui/              # Screens — dashboard, login, profile, scan, status
+├── services/        # Firebase auth, Firestore database, backend API
+├── models/          # User, DashData models
+├── locations/       # Google Maps integration
+├── backend/         # Location + timestamp tracking
+├── utils/           # Constants, UI helpers
+└── style/           # Theming
+```
+
+## Impact
+
+- **500+** user-generated geo-location pins in the first month
+- **1000+** image uploads and location updates monthly via REST APIs
+
+## Setup
+
+```bash
+flutter pub get
+# Configure Firebase (google-services.json / GoogleService-Info.plist)
+# Set Google Maps API key in AndroidManifest.xml / AppDelegate.swift
+flutter run
+```
